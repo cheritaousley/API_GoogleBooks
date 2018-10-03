@@ -5,7 +5,7 @@
 * Javascript
 
 #### Functionaility 
-1. user types in any description (of desired book)
+1. user types in any description (of desired book) in the form 
 2. Press search
 3. Sends request to Google Books API
 4. Brings back requested information, displaying Title, Authors, Publisher, and image
