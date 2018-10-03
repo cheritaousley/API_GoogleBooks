@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Books!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css" crossorigin="anonymous">
+    <script src="action.js">
+    </script>
+    </head>
+    <body>
+        <div class = "background">
+            <form id ="myform" >
+                <div class="form-group">
+                    <input type="search" id="books" placeholder="Search Books">
+                </div>
+                <button class="btn btn-primary"> Search Books</button>
+            </form>
+        </div>
+        <div id ="results"></div>
+    </body>
+    <style type="text/css">
+        body {
+            background: #5aadbb !important;
+        }
+    
+        /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
+  
