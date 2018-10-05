@@ -1,0 +1,26 @@
+{
+  "name": "googlebookapi",
+  "version": "1.0.0",
+  "description": "Google Books App",
+  "main": "action.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheritaousley/API_GoogleBooks.git"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Cherita Ousley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheritaousley/API_GoogleBooks/issues"
+  },
+  "homepage": "https://github.com/cheritaousley/API_GoogleBooks#readme",
+  "engines": {
+    "node": "6.11.3"
+  }
+}
+

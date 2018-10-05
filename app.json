@@ -1,0 +1,9 @@
+{
+    "name": "Start on Heroku: Node.js",
+    "description": "A Google Books app using node.js",
+    "repository": "https://github.com/cheritaousley/API_GoogleBooks.git",
+    "keywords": [
+        "node",
+        "heroku"
+    ]
+}
