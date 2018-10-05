@@ -15,4 +15,11 @@ var server = http.createServer(function (request, response) {
             response.end(); // finished!
         });
     }
+    // request didn't match anything:
+    else {
+        response.writeHead(404);
+        response.end('File not found!!!');
+    }
 });
+// tell your server which port to run on
+server.listen(5000);
