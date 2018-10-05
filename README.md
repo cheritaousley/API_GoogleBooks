@@ -2,6 +2,7 @@
 ### Book Application using Google Books API
 
 #### Technologies
+* Node.js
 * Javascript
 
 #### Functionaility 
