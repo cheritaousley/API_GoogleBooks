@@ -1,25 +1,21 @@
-// get the http module:
-var http = require('http');
-// fs module allows us to read and write content for responses!!
-var fs = require('fs');
-// creating a server using http module:
-var server = http.createServer(function (request, response) {
-    // see what URL the clients are requesting:
-    console.log('client request URL: ', request.url);
-    // this is how we do routing:
-    //---------------------this loads the root route or the homepage-----------------//
-    if (request.url === '/') {
-        fs.readFile('./index.html', 'utf8', function (errors, contents) {
-            response.writeHead(200, { 'Content-Type': 'text/html' });  // send data about response
-            response.write(contents);  //  send response body
-            response.end(); // finished!
-        });
-    }
-    // request didn't match anything:
-    else {
-        response.writeHead(404);
-        response.end('File not found!!!');
-    }
-});
-// tell your server which port to run on
-server.listen(5000);
+var express = require('express');
+var path = require('path');
+var app = express();
+var bodyParser = require('body-parser');
+
+app.set('port', (process.env.PORT || 5000))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, './client/static')));
+app.set('views', path.join(__dirname, './client/views'));
+app.set('view engine', 'ejs');
+
+app.get('/', function (request, response) {
+    response.sendFile(__dirname + '/index.html')
+})
+// app.get('/books', function (request, response) {
+//     response.sendfile('books.html')
+// })
+app.listen(app.get('port'), function () {
+    console.log("Node app is running at localhost:" + app.get('port'))
+})

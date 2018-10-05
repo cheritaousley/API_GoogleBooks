@@ -21,6 +21,9 @@
   "homepage": "https://github.com/cheritaousley/API_GoogleBooks#readme",
   "engines": {
     "node": "6.11.3"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
   }
 }
-
