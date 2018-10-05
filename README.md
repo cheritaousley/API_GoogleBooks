@@ -3,7 +3,7 @@
 
 #### Technologies
 * Node.js
-* Javascript
+* Express
 
 #### Functionaility 
 1. user types in any description (of desired book) in the form 
