@@ -7,10 +7,7 @@ $(document).ready(function(){
             alert("Please enter something in the field");
         }
         else{
-            var img = '';
-            var title = '';
-            var author = '';
-
+            
             $.ajax({
                 type: "GET",
                 url: "https://www.googleapis.com/books/v1/volumes?q=" +search+ "=epub&key=" +apikey ,
@@ -20,31 +17,54 @@ $(document).ready(function(){
                 alert("Success");
                 console.log("We made it");
                 console.log(response);
-                for(i=0; i<response.items.length; i++)
+                for(index=0; index<response.items.length; index++)
                 {
-                    title =$('<h5 class="black-text"><br>' +response.items[i].volumeInfo.title + '</h5>');
-                    author = $('<h5 class="black-text"> By: ' + response.items[i].volumeInfo.authors + '</h5>');
-                    publisher = $('<h5 class="black-text"> Published By: ' + response.items[i].volumeInfo.publisher + '</h5>');
-                    img = $('<img><br>');
-                    readmore = $('<a href=' + response.items[i].volumeInfo.infoLink + '><br><button class="btn btn-primary">Read More</button></a>')
-                    
-                    actualImg = response.items[i].volumeInfo.imageLinks.thumbnail;
-                    img.attr('src',actualImg);//attaching image to page
-
-                    title.appendTo("#results");
-                    author.appendTo("#results");
-                    publisher.appendTo("#results");
-                    img.appendTo("#results");
-                    readmore.appendTo("#results")
-                   
+                    setTitle(response, index);
+                    setAuthor(response, index);
+                    setPublisher(response, index);
+                    setImg(response, index);
+                    setReadmore(response, index);
                 }
             },
                 fail: function (textStatus, errorThrown) {
                 alert("AJAX call failed: " + textStatus + ", " + errorThrown);
             }
-
         });
+        reset();
     }
     return false;
 });
 })
+
+function setTitle(response, index){
+    console.log("setting Title");
+    title = $('<h5 class="black-text"><br>' + response.items[index].volumeInfo.title + '</h5>');
+    title.appendTo("#results");
+
+}
+function setAuthor(response, index){
+    console.log("setting Author");
+    author = $('<h5 class="black-text"> By: ' + response.items[index].volumeInfo.authors + '</h5>');
+    author.appendTo("#results");
+}
+function setPublisher(response, index){
+    console.log("setting Publisher");
+    publisher = $('<h5 class="black-text"> Published By: ' + response.items[index].volumeInfo.publisher + '</h5>');
+    publisher.appendTo("#results");
+}
+function setImg(response, index){
+    console.log("setting Image");
+    img = $('<img><br>');
+    img.appendTo("#results");
+
+    actualImg = response.items[index].volumeInfo.imageLinks.thumbnail;
+    img.attr('src', actualImg);//attaching image to page
+}
+function setReadmore(response, index){
+    console.log("setting reading more");
+    readmore = $('<a href=' + response.items[index].volumeInfo.infoLink + '><br><button class="btn btn-primary">Read More</button></a>');
+    readmore.appendTo("#results");
+}
+function reset(){
+    $("#results").html("");
+}
